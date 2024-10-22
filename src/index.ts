@@ -1,6 +1,4 @@
-// import type { Core } from '@strapi/strapi';
-
-import { Core } from "@strapi/strapi";
+import type { Core } from "@strapi/strapi";
 
 export default {
   /**
@@ -15,9 +13,7 @@ export default {
     );
 
     contentTypeName.attributes = {
-      // Spread previous defined attributes
       ...contentTypeName.attributes,
-      // Add new, or override attributes
       totpSecret: {
         type: "string",
         private: true,
@@ -29,10 +25,6 @@ export default {
         configurable: false,
       },
     };
-
-    // contentTypeName.attributes.totpSecret.pluginOptions = {
-    //   editableInAdmin: false,
-    // };
   },
 
   /**

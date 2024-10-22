@@ -7,11 +7,8 @@ import { randomInt } from "crypto";
 import { addMinutes } from "date-fns";
 import utils from "@strapi/utils";
 import { Totp } from "time2fa";
-const { ValidationError, ApplicationError } = utils.errors;
 
-// function generateOtp() {
-//   return randomInt(1000_000).toString().padStart(6, "0");
-// }
+const { ValidationError, ApplicationError } = utils.errors;
 
 const sanitizeUser = (user, ctx) => {
   const { auth } = ctx.state;
@@ -39,12 +36,6 @@ export default factories.createCoreController("api::otp.otp", ({ strapi }) => ({
     );
 
     if (provider === "local" || provider === "email") {
-      // } else {
-      //   await strapi.controllers["plugin::users-permissions.auth"].callback(
-      //     ctx,
-      //     next
-      //   );
-
       try {
         const body: any = ctx.body;
 

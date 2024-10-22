@@ -13,13 +13,10 @@ export default factories.createCoreService("api::otp.otp", ({ strapi }) => ({
         code,
         user: { email: { $eq: email } },
       },
-      // populate: ["user"],
     });
 
     if (!otpEntry) return false;
 
-    // const createdAt = new Date(otpEntry.createdAt.valueOf());
-    // const expDate = otpEntry.expiresAt.valueOf;
     const now = new Date().toISOString();
 
     if (!isAfter(otpEntry.expiresAt, now)) return false;
